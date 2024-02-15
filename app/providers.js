@@ -2,22 +2,17 @@
 
 import { ChakraProvider, ColorModeScript, extendTheme } from '@chakra-ui/react'
 
-const theme = extendTheme({
+export const theme = extendTheme({
   config: {
-    initialColorMode: "light",
+    initialColorMode: 'light',
     useSystemColorMode: false,
   },
   colors: {
     primary: {
-      50: "#FCFCFD",
-      100: "#cfe0ff",
-      200: "#add4ff",
-    },
-  },
+      50: '#2a85ff'
+    }
+  }
 });
-
-export default theme;
-
 
 export function Providers({ children }) {
   return (

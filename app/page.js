@@ -1,13 +1,21 @@
 "use client"
 
+import HomePage from "./components/home";
 import Navbar from "./components/navbar";
-import { Wrap } from "@chakra-ui/react";
+import { Box, HStack, VStack } from "@chakra-ui/react";
+import Section from "./components/section";
+
 
 export default function Home() {
   
   return (
-    <Wrap px="80px" mx="auto" maxW="1280px"  >
+    <>
       <Navbar/>
-    </Wrap>
+      <HomePage />
+      <VStack h="100vh" px={{ base: '32px', sm: '40px', md: '80px' }} mx="auto" maxW="1280px" w="full">
+        <Section/>
+      </VStack>
+    </>
+    
   );
 }
