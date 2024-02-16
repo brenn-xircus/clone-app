@@ -1,8 +1,9 @@
 'use client';
 
-import { Box, HStack, Text } from "@chakra-ui/react";
+import { Box, HStack, IconButton, Menu, MenuButton, MenuItem, MenuList, Text, useMediaQuery } from "@chakra-ui/react";
 import { useTheme } from "@emotion/react";
 import { useEffect, useState } from "react";
+import { TbMenu2 } from "react-icons/tb";
 
 const navbarItems = ['Home', 'Services', 'About', 'Blog', 'Contact']
 
@@ -10,6 +11,8 @@ const Navbar = () => {
 
   const [activeItem, setActiveItem] = useState('Home')
   const [scrolling, setScrolling] = useState(false)
+
+  const [isLargerThanMd] = useMediaQuery("(min-width: 48em)");
 
   const theme = useTheme();
 
@@ -44,7 +47,7 @@ const Navbar = () => {
         alignItems="center" 
         justifyContent="space-between" 
         h="120px" 
-        px="80px" 
+        px={{ base: '32px', sm: '40px', md: '80px' }} 
         mx="auto" 
         maxW="1280px"
       >
@@ -76,6 +79,30 @@ const Navbar = () => {
         >
             Let&apos;s talk
         </Text>
+
+        {!isLargerThanMd && (
+          <Menu>
+          <MenuButton
+            as={IconButton}
+            aria-label='Options'
+            icon={<TbMenu2 />}
+            
+            color="blackAlpha"
+          />
+          <MenuList>
+            {navbarItems.map((item) => (
+              <MenuItem 
+                key={item} 
+                _hover={{ color: theme.colors.primary[50], cursor: 'pointer' }}
+                color={activeItem === item ? theme.colors.primary[50] : 'gray.500'}
+                onClick={() => setActiveItem(item)}
+              >
+                {item}
+              </MenuItem>
+            ))}
+          </MenuList>
+        </Menu>
+        )}
       </HStack>
         
     </Box>

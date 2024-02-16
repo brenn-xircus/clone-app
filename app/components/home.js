@@ -9,11 +9,11 @@ const HomePage = () => {
   return (
     <Box position="relative" h="730px">
       <Box 
-        bgImage="url('/kobe.jpg')"
+        bgImage="url('https://via.placeholder.com/1920x1080')"
         bgSize="cover"
-        bgPos="100% 70%"
-        backgroundBlendMode="darken"
-        backgroundColor="rgba(105, 105, 224, 0.3568627450980392)"
+        bgPos="center"
+        // backgroundBlendMode="darken"
+        // backgroundColor="rgba(105, 105, 224, 0.3568627450980392)"
         w="full" 
         position="absolute"
         top={0}

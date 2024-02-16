@@ -3,7 +3,8 @@
 import HomePage from "./components/home";
 import Navbar from "./components/navbar";
 import { VStack } from "@chakra-ui/react";
-import ServicesSection from "./components/servicesSection";
+import ServicesSection from "./[services]/servicesSection";
+import ProjectSection from "./[project]/projectSection";
 
 
 export default function Home() {
@@ -12,8 +13,9 @@ export default function Home() {
     <>
       <Navbar/>
       <HomePage />
-      <VStack h="100vh" px={{ base: '32px', sm: '40px', md: '80px' }} mx="auto" maxW="1280px" w="full">
+      <VStack pb={20} h="100vh" px={{ base: '32px', sm: '40px', md: '80px' }} mx="auto" maxW="1280px" w="full">
         <ServicesSection />
+        <ProjectSection />
       </VStack>
     </>
     
