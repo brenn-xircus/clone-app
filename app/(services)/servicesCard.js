@@ -1,7 +1,8 @@
-import { Card, Grid, IconButton, Text, VStack } from '@chakra-ui/react'
+"use client";
+
+import { Grid, IconButton, Text, VStack } from '@chakra-ui/react'
 import { useTheme } from '@emotion/react';
 import React from 'react'
-import { TbLayoutDashboard, TbPuzzle2, TbWorld } from "react-icons/tb";
 
 const ServicesCard = ({ cardData = [] }) => {
 

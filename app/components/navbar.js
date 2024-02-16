@@ -4,15 +4,16 @@ import { Box, HStack, IconButton, Menu, MenuButton, MenuItem, MenuList, Text, us
 import { useTheme } from "@emotion/react";
 import { useEffect, useState } from "react";
 import { TbMenu2 } from "react-icons/tb";
+import { Link as ScrollLink } from 'react-scroll';
 
-const navbarItems = ['Home', 'Services', 'About', 'Blog', 'Contact']
+const navbarItems = ['Home', 'Services', 'Projects', 'Clients', 'Contacts']
+
 
 const Navbar = () => {
 
-  const [activeItem, setActiveItem] = useState('Home')
   const [scrolling, setScrolling] = useState(false)
-
   const [isLargerThanMd] = useMediaQuery("(min-width: 48em)");
+  const [activeSection, setActiveSection] = useState('Home');
 
   const theme = useTheme();
 
@@ -31,6 +32,10 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  const handleSetActive = (section) => {
+    setActiveSection(section);
+  };
 
   return ( 
     <Box 
@@ -51,7 +56,7 @@ const Navbar = () => {
         mx="auto" 
         maxW="1280px"
       >
-        <Text fontSize="2xl" fontWeight="bold" color={scrolling ? 'black' : 'white' }>Vedio</Text>
+        <Text fontSize="2xl" fontWeight="bold" color={scrolling ? 'black' : 'white' }>M4mba</Text>
         <HStack
           gap={8}
           fontSize="sm" 
@@ -63,10 +68,20 @@ const Navbar = () => {
             <Text 
               key={item} 
               _hover={{ color: theme.colors.primary[50], cursor: 'pointer' }}
-              color={activeItem === item ? theme.colors.primary[50] : 'gray.500'}
-              onClick={() => setActiveItem(item)}
+              transition="0.2s ease"
+              color={activeSection === item ? theme.colors.primary[50] : 'gray.500'}
             >
-                {item}
+                <ScrollLink 
+                  to={item.toLowerCase()} 
+                  smooth={true} 
+                  offset={-60} 
+                  duration={500} 
+                  spy={true} 
+                  activeClass="active"
+                  onSetActive={() => handleSetActive(item)}
+                >
+                  {item}
+                </ScrollLink>
             </Text>
           ))}
         </HStack>
@@ -94,10 +109,19 @@ const Navbar = () => {
               <MenuItem 
                 key={item} 
                 _hover={{ color: theme.colors.primary[50], cursor: 'pointer' }}
-                color={activeItem === item ? theme.colors.primary[50] : 'gray.500'}
-                onClick={() => setActiveItem(item)}
               >
-                {item}
+                  <ScrollLink 
+                    to={item.toLowerCase()} 
+                    smooth={true} 
+                    offset={-80} 
+                    duration={500} 
+                    spy={true} 
+                    activeClass="active"
+                    onSetActive={() => handleSetActive(item)}
+                    color={activeSection === item ? theme.colors.primary[50] : 'gray.500'}
+                  >
+                    {item}
+                  </ScrollLink>
               </MenuItem>
             ))}
           </MenuList>

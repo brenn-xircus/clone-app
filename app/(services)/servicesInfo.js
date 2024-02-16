@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Grid, IconButton, Text, VStack } from '@chakra-ui/react'
 import { useTheme } from '@emotion/react'
 import React from 'react'

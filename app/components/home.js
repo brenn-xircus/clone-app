@@ -1,3 +1,5 @@
+"use client";
+
 import { Box, Button, ButtonGroup, HStack, Heading, Text, VStack } from '@chakra-ui/react'
 import { useTheme } from '@emotion/react'
 import React from 'react'
@@ -12,13 +14,12 @@ const HomePage = () => {
         bgImage="url('https://via.placeholder.com/1920x1080')"
         bgSize="cover"
         bgPos="center"
-        // backgroundBlendMode="darken"
-        // backgroundColor="rgba(105, 105, 224, 0.3568627450980392)"
         w="full" 
         position="absolute"
         top={0}
         right={0}
         pb={20}
+        id="home"
       >
         <Box px={{ base: '32px', sm: '40px', md: '80px' }} mx="auto" maxW="1280px">
           <VStack pt="200px" alignItems="start" gap={8} maxW="600px" >

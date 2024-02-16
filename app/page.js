@@ -1,11 +1,14 @@
 "use client"
 
+import ClientSection from "./(clients)/clientSection";
+import ContactsSection from "./(contacts)/contactsSection";
+import NewsSection from "./(news)/newsSection";
+import ProjectSection from "./(projects)/projectSection";
+import ServicesSection from "./(services)/servicesSection";
+import Footer from "./components/footer";
 import HomePage from "./components/home";
 import Navbar from "./components/navbar";
-import { VStack } from "@chakra-ui/react";
-import ServicesSection from "./[services]/servicesSection";
-import ProjectSection from "./[project]/projectSection";
-
+import { Box } from "@chakra-ui/react";
 
 export default function Home() {
   
@@ -13,10 +16,14 @@ export default function Home() {
     <>
       <Navbar/>
       <HomePage />
-      <VStack pb={20} h="100vh" px={{ base: '32px', sm: '40px', md: '80px' }} mx="auto" maxW="1280px" w="full">
+      <Box px={{ base: '32px', sm: '40px', md: '80px' }} mx="auto" maxW="1280px" w="full">
         <ServicesSection />
         <ProjectSection />
-      </VStack>
+        <ClientSection />
+        <NewsSection />
+        <ContactsSection />
+      </Box>
+      <Footer />
     </>
     
   );

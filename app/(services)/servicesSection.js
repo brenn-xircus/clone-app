@@ -1,6 +1,8 @@
+"use client";
+
 import React from 'react'
 import ServicesCard from './servicesCard'
-import { Box, Flex } from '@chakra-ui/react'
+import { Flex } from '@chakra-ui/react'
 import SectionHeader from '../components/sectionHeader'
 import { TbBrandSpeedtest, TbDiamond, TbHeart, TbLayoutDashboard, TbPuzzle, TbStar, TbWorld } from "react-icons/tb";
 import ServicesInfo from './servicesInfo';
@@ -50,7 +52,7 @@ const ServicesSection = () => {
   ]
   return (
 
-    <Flex gap={20} mb={20} flexDir="column" pt={{ base: '90px', md: '160px' }} w="full" h="full">
+    <Flex gap={20} flexDir="column" pt={{ base: '90px', md: '160px' }} w="full" h="full" id="services">
       <SectionHeader sectionNumber="01" title="Services" sectionNumberBg="#FFBC99" />
       <ServicesCard cardData={cardData} />
       <ServicesInfo cardInfoStats={cardInfoStats}/>

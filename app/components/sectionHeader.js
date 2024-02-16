@@ -1,16 +1,15 @@
+"use client";
+
 import { Box, Flex, Text, VStack } from '@chakra-ui/react'
-import { useTheme } from '@emotion/react'
 import React from 'react'
 
-const SectionHeader = ({ sectionNumber, title, sectionNumberBg  }) => {
+const SectionHeader = ({ sectionNumber, title, sectionNumberBg, flex  }) => {
 
-  const theme = useTheme();
-  
   return (
     <Flex
+        flex={flex ? 1 : 0}
         flexDir={{ base: 'column', md: 'row' }}
         justifyContent={{ base: 'center', md: 'space-between'}}
-        alignItems="center"
         gap={3}
       >
         <VStack alignItems={{ base: 'center', md: 'start' }} gap={3}>
@@ -39,17 +38,10 @@ const SectionHeader = ({ sectionNumber, title, sectionNumberBg  }) => {
               fontSize={{ base: '48px', md: '64px', lg: '92px' }}
               color="#e6e8ec"
               fontWeight="bold"
+              lineHeight={1}
             >{title}</Text>
           </Flex>
         </VStack>
-        <Text
-          color={theme.colors.primary[50]} 
-          fontWeight="bold" 
-          fontSize="sm"
-          _hover={{ cursor: 'pointer' }}
-        >
-          View {title}
-        </Text>
       </Flex>
   )
 }
