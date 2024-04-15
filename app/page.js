@@ -9,21 +9,24 @@ import Footer from "./components/footer";
 import HomePage from "./components/home";
 import Navbar from "./components/navbar";
 import { Box } from "@chakra-ui/react";
+import Wallet from "./components/wallet";
 
 export default function Home() {
   
   return (
     <>
-      <Navbar/>
-      <HomePage />
-      <Box px={{ base: '32px', sm: '40px', md: '80px' }} mx="auto" maxW="1280px" w="full">
-        <ServicesSection />
-        <ProjectSection />
-        <ClientSection />
-        <NewsSection />
-        <ContactsSection />
-      </Box>
-      <Footer />
+      <Wallet>
+        <Navbar/>
+        <HomePage />
+        <Box px={{ base: '32px', sm: '40px', md: '80px' }} mx="auto" maxW="1280px" w="full">
+          <ServicesSection />
+          <ProjectSection />
+          <ClientSection />
+          <NewsSection />
+          <ContactsSection />
+        </Box>
+        <Footer />
+      </Wallet>
     </>
     
   );

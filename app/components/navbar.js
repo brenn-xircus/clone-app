@@ -1,10 +1,11 @@
 'use client';
 
-import { Box, HStack, IconButton, Menu, MenuButton, MenuItem, MenuList, Text, useMediaQuery } from "@chakra-ui/react";
+import { Box, Button, HStack, IconButton, Menu, MenuButton, MenuItem, MenuList, Text, useMediaQuery } from "@chakra-ui/react";
 import { useTheme } from "@emotion/react";
 import { useEffect, useState } from "react";
 import { TbMenu2 } from "react-icons/tb";
 import { Link as ScrollLink } from 'react-scroll';
+import { useWallet } from '@xircus-web3/ton-react'
 
 const navbarItems = ['Home', 'Services', 'Projects', 'Clients', 'Contacts']
 
@@ -14,6 +15,8 @@ const Navbar = () => {
   const [scrolling, setScrolling] = useState(false)
   const [isLargerThanMd] = useMediaQuery("(min-width: 48em)");
   const [activeSection, setActiveSection] = useState('Home');
+
+  const wallet = useWallet();
 
   const theme = useTheme();
 
@@ -85,15 +88,15 @@ const Navbar = () => {
             </Text>
           ))}
         </HStack>
-        <Text 
+        <Button 
           fontSize="sm" 
           fontWeight="bold" 
           color={theme.colors.primary[50]}
           _hover={{ cursor: 'pointer' }}
-          display={{ base: 'none', md: 'block' }}
+          onClick={wallet.disconnect}
         >
-            Let&apos;s talk
-        </Text>
+            Disconnect
+        </Button>
 
         {!isLargerThanMd && (
           <Menu>

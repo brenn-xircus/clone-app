@@ -1,6 +1,7 @@
 'use client'
 
 import { ChakraProvider, ColorModeScript, extendTheme } from '@chakra-ui/react'
+import { XircusTonProvider, setupSDK } from '@xircus-web3/ton-react'
 
 export const theme = extendTheme({
   colors: {
@@ -10,10 +11,14 @@ export const theme = extendTheme({
   }
 });
 
+
 export function Providers({ children }) {
   return (
-    <ChakraProvider theme={theme}>
-      {children}
-    </ChakraProvider>
+    <XircusTonProvider>
+      <ChakraProvider theme={theme}>
+        {children}
+      </ChakraProvider>
+    </XircusTonProvider>
+    
   )
 }
